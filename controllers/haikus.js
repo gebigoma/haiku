@@ -29,3 +29,13 @@ exports.create = (req, res) => {
     }
   })
 }
+
+exports.update = (req, res) => {
+  Haiku.update({_id: req.params.id}, {$set: req.body}, (err, haikus) => {
+    if(err) {
+      res.json({ status: "FAIL", err })
+    } else {
+      res.json({ status: "SUCCESS", payload: { haikus } })
+    }
+  })
+}
