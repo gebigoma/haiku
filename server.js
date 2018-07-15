@@ -3,7 +3,8 @@ const
   app = express(), 
   logger = require('morgan'),
   mongoose = require('mongoose'),
-  PORT = 3000
+  PORT = 3000, 
+  haikuRouter = require('./routers/haikuRouter')
 
 mongoose.connect('mongodb://localhost/haiku', (err) => {
   console.log(err || "Successfully connectedd to MONGOD")
