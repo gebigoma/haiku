@@ -39,3 +39,13 @@ exports.update = (req, res) => {
     }
   })
 }
+
+exports.destroy = (req, res) => {
+  Haiku.findByIdAndRemove({_id: req.params.id}, (err, deletedHaiku) => {
+    if(err) {
+      res.json({ status: "FAIL", err })
+    } else {
+      res.json({ status: "SUCCESS", payload: { deletedHaiku }})
+    }
+  })
+}
