@@ -2,11 +2,20 @@ const Haiku = require('../model/haiku')
 
 exports.index = (req, res) => {
   Haiku.find({}, (err, haikus) => {
-    if (err) {
+    if(err) {
       res.json({ status: "FAIL", err })
     } else {
-      res.json({ status: "SUCCESS", payload: { haikus }}
-      )
+      res.json({ status: "SUCCESS", payload: { haikus } })
+    }
+  })
+}
+
+exports.showHaiku = (req, res) => {
+  Haiku.findById(req.params.id, (err, haikuFromDB) => {
+    if(err) {
+      res.json({ status: "FAIL", err })
+    } else {
+      res.json({  status: "SUCCESS", payload: { haikuFromDB } })
     }
   })
 }
