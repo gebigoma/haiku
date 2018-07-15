@@ -10,3 +10,13 @@ exports.index = (req, res) => {
     }
   })
 }
+
+exports.create = (req, res) => {
+  Haiku.create(req.body, (err, newHaiku) => {
+    if(err) {
+      res.json({ status: "FAIL", err })
+    } else {
+      res.json({ status: "SUCCESS", payload: { newHaiku } })
+    }
+  })
+}

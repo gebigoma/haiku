@@ -1,8 +1,10 @@
 const 
   express = require('express'), 
-  haikuRouter = express.Router(), 
-  Haiku = require('../controllers/haikusCtrl')
+  router = express.Router(), 
+  Haiku = require('../controllers/haikus')
 
-haikuRouter.get('/', Haiku.index)
+router.get('/', Haiku.index)
 
-module.exports = haikuRouter
+router.post('/', Haiku.create)
+
+module.exports = router
