@@ -1,4 +1,4 @@
-const Haiku = require('../model/haiku')
+const Haiku = require('../model/Haiku')
 
 exports.index = (req, res) => {
   Haiku.find({}, (err, haikus) => {
