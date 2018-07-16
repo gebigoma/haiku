@@ -7,7 +7,7 @@ const
   haikuRouter = require('./routers/haikuRouter')
 
 //  connect to db
-mongoose.connect('mongodb://localhost/haiku', (err) => {
+mongoose.connect('mongodb://localhost:27017/haiku',  { useNewUrlParser: true }, (err) => {
   console.log(err || "Successfully connectedd to MONGOD")
 })
 
